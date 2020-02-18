@@ -102,12 +102,32 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             toUnits.text = VolumeUnit.Liters.rawValue
             fromField.placeholder = "Enter volume in \(fromUnits.text!)"
             toField.placeholder = "Enter volume in \(toUnits.text!)"
+            guard let fph = fromField.placeholder else {
+                return
+            }
+            fromField.attributedPlaceholder =
+                NSAttributedString(string: fph, attributes: [NSAttributedString.Key.foregroundColor: FOREGROUND_COLOR])
+            guard let tph = toField.placeholder else {
+                return
+            }
+            toField.attributedPlaceholder =
+                NSAttributedString(string: tph, attributes: [NSAttributedString.Key.foregroundColor: FOREGROUND_COLOR])
         case .Volume:
             currentMode = .Length
             fromUnits.text = LengthUnit.Yards.rawValue
             toUnits.text = LengthUnit.Meters.rawValue
             fromField.placeholder = "Enter length in \(fromUnits.text!)"
             toField.placeholder = "Enter length in \(toUnits.text!)"
+            guard let fph = fromField.placeholder else {
+                return
+            }
+            fromField.attributedPlaceholder =
+                NSAttributedString(string: fph, attributes: [NSAttributedString.Key.foregroundColor: FOREGROUND_COLOR])
+            guard let tph = toField.placeholder else {
+                return
+            }
+            toField.attributedPlaceholder =
+                NSAttributedString(string: tph, attributes: [NSAttributedString.Key.foregroundColor: FOREGROUND_COLOR])
         }
         calculatorHeader.text = "\(currentMode.rawValue) Conversion Calculator"
         
