@@ -63,7 +63,11 @@ class SettingsViewController: UIViewController {
         }
         self.fromUnits.text = fStr
         self.toUnits.text = tStr
-        
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func didReceiveMemoryWarning() {
@@ -154,3 +158,8 @@ extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate 
     }
 }
 
+extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? .default
+    }
+}

@@ -22,6 +22,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         super.viewDidLoad()
         toField.delegate = self
         fromField.delegate = self
+        self.view.backgroundColor = BACKGROUND_COLOR
     }
 
     override func didReceiveMemoryWarning() {
